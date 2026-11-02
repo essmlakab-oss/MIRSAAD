@@ -6,6 +6,21 @@ Soil-moisture telemetry can be falsified: an attacker writes plausible readings 
 
 ---
 
+## 📚 Documentation
+
+All the project documentation is in the [`documentation/`](documentation) folder:
+
+| Document | Content |
+|---|---|
+| [`Donnees.pdf`](documentation/Donnees.pdf) | Data: USCRN cleaning, ERA5, neighbour stations, attack datasets |
+| [`Rapport_Modele_Supervise.pdf`](documentation/Rapport_Modele_Supervise.pdf) | Supervised detector v3.1: witnesses, digital twins, two LightGBM stages, results |
+| [`Rapport_OneClass.pdf`](documentation/Rapport_OneClass.pdf) | One-Class hybrid detector (second opinion) |
+| [`Rapport_Arene.pdf`](documentation/Rapport_Arene.pdf) | Attacker vs defender arena: simulator, defender, interface |
+
+The trust chain (cryptographic gate, attack engine, causal detectors, evaluation) is documented in [`trust-chain/README.md`](trust-chain/README.md) and in the reports inside each of its sub-folders.
+
+---
+
 ## 🔓 Model Access (Public Hugging Face)
 
 The machine learning artifacts — the attack detector, the per-station digital twins, and the attack-type classifier — are hosted in a **public** Hugging Face repository.
