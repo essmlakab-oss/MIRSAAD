@@ -102,6 +102,18 @@ frontend/
 
 ## ⚙️ How to Run
 
+### 0. Download the Arena data (once)
+
+The Attack Arena needs `arena_assets.zip` (136 MB: detector v3.1, digital twins, clean 2025 base, recorded runs). It is attached to the [v1.0 release](https://github.com/essmlakab-oss/MIRSAAD/releases/tag/v1.0), not stored in git:
+
+```bash
+cd backend/Data
+curl -L -o arena_assets.zip https://github.com/essmlakab-oss/MIRSAAD/releases/download/v1.0/arena_assets.zip
+tar -xf arena_assets.zip      # creates backend/Data/arena/
+```
+
+`curl` and `tar` are available on Windows 10/11, macOS and Linux. The FDI Detection models and its demo dataset are downloaded automatically from Hugging Face on first start (see Model Access above).
+
 ### 1. Backend (FastAPI)
 ```bash
 cd backend
