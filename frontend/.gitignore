@@ -1,0 +1,58 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+.output
+.vinxi
+.tanstack/**
+.nitro
+*.local
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Caches
+.vite/
+.cache/
+.eslintcache
+
+# Coverage / test output
+coverage/
+playwright-report/
+test-results/
+
+# Wrangler / Cloudflare
+.wrangler/
+.dev.vars
+
+# Raw 3D source assets. The 34 MB Sketchfab export of the antenna lives here;
+# only the optimised 1.6 MB build in public/models/ belongs in the repo, and a
+# binary that size is effectively permanent once it reaches git history.
+src/3d model/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# Large datasets (CSVs and Parquet files in the backend Data folder)
+backend/app/fdi/Data/
+*.csv
+*.parquet

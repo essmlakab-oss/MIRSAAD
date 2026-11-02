@@ -1,0 +1,48 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+
+# Authentication against Supabase. No password hashing here — Supabase Auth
+# holds the passwords; the backend only verifies the tokens it issues.
+# PyJWT[crypto] pulls in `cryptography`, which the ES256 signature check needs.
+PyJWT[crypto]
+httpx
+email-validator
+
+# FDI detection (MIRSAAD Track 2). The artifact on Hugging Face
+# (oneclass_hybride_v5.joblib) was written by this exact stack — joblib
+# unpickles by class path AND by version, so these pins are load-bearing:
+# a different minor of scikit-learn can refuse the HistGradientBoosting
+# internals the digital twin is made of. numpy 2.5 / pandas 3.0 are what
+# the model was trained and scored with.
+numpy==2.5.3
+pandas==3.0.5
+scikit-learn==1.9.1
+joblib==1.6.0
+# Required underneath scikit-learn and shap; listed so a slim deployment
+# image does not discover the dependency at import time.
+scipy
+# The artifact stores frames with pandas' arrow-backed string dtype, so
+# unpickling it imports pyarrow. Missing here shows up as a 503 on load.
+pyarrow
+
+# Model artifact fetch + explainability. shap is imported lazily by
+# app/fdi/* (a missing one costs the XAI tab, not the whole API), but it
+# is listed here so a deployment does not discover that at first click.
+# LIME was removed in Phase 1 (frozen contract: SHAP-only twin explanations).
+huggingface_hub>=0.30
+# Resolved version in CI: 0.54.1. Ceiling below 1.0 guards against a major
+# TreeExplainer API change that would break the startup additivity assertion.
+shap>=0.54,<1.0
+# CSV upload on /api/fdi/predict: FastAPI's File(...) parsing needs it.
+python-multipart
+
+# AI copilot for the dashboard. The key lives in backend/.env
+# as `groq_model`; app/ai/client.py also accepts GROQ_API_KEY.
+groq
+
+# Model 2 (attack-type classifier, app/fdi/attack_classifier.py): its
+# detecteur_v3 module trains LightGBM twins at featurise time and its joblib
+# stores LightGBM boosters, so the runtime needs the library too.
+lightgbm>=4.0
