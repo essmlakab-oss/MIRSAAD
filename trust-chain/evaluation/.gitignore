@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Generated scores; regenerate with scripts/run_all
+outputs/
+*.parquet

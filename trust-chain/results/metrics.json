@@ -1,0 +1,205 @@
+{
+  "sources": {
+    "gate": "results/gate_benchmark.json",
+    "signal": "signal-processing/outputs/bench.json",
+    "eval_realtime": "evaluation/results/realtime/causal_detector_results.json",
+    "eval_delayed": "evaluation/results/delayed/causal_detector_results.json",
+    "demo": "results/demo_summary.json"
+  },
+  "gate": {
+    "accept_verify_mean_ms": 19.2352,
+    "accept_verify_p95_ms": 45.476,
+    "reject_verify": {
+      "E_BAD_SIG": {
+        "n": 200,
+        "mean_ms": 15.3484,
+        "p95_ms": 25.0175
+      },
+      "E_REPLAY_SEQ": {
+        "n": 200,
+        "mean_ms": 18.1925,
+        "p95_ms": 46.1087
+      },
+      "E_REVOKED_KEY": {
+        "n": 200,
+        "mean_ms": 15.7077,
+        "p95_ms": 25.5824
+      },
+      "E_SCHEMA": {
+        "n": 200,
+        "mean_ms": 12.4728,
+        "p95_ms": 16.7469
+      },
+      "E_STALE": {
+        "n": 200,
+        "mean_ms": 13.1599,
+        "p95_ms": 15.9582
+      },
+      "E_UNAUTHORIZED_SESSION": {
+        "n": 200,
+        "mean_ms": 16.8938,
+        "p95_ms": 39.0616
+      },
+      "E_UNKNOWN_KEY": {
+        "n": 200,
+        "mean_ms": 12.2646,
+        "p95_ms": 15.4331
+      }
+    },
+    "security_overhead_ms_per_packet": 0.4484,
+    "https_packets": 3000,
+    "https_round_trip_mean_ms": 16.751,
+    "https_round_trip_p95_ms": 26.5771,
+    "https_throughput_packets_per_s": 59.7,
+    "server_peak_rss_mib": 121.2,
+    "added_bytes_per_envelope": 283.0,
+    "environment": {
+      "cpu": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+      "cpu_count": 12,
+      "os": "Windows 11",
+      "python": "3.12.3",
+      "packages": {
+        "cryptography": "50.0.2",
+        "fastapi": "0.162.0",
+        "httpx": "0.28.1",
+        "pydantic": "2.14.1",
+        "uvicorn": "0.54.0"
+      },
+      "database": "SQLite WAL, synchronous=FULL"
+    }
+  },
+  "signal_processing": {
+    "per_row_median_us": 4.053831565180591,
+    "rows_per_second": 241931.95054689713,
+    "peak_memory_mib": 57.79707431793213
+  },
+  "detectors": {
+    "rules": {
+      "decision_delay_h": 0,
+      "precision": 0.637,
+      "recall": 0.335,
+      "f1": 0.439,
+      "false_alarm_rate": 0.0023,
+      "pr_auc": 0.303,
+      "per_family": {
+        "bias": {
+          "hourly_recall": 0.0,
+          "events_detected": 0.0,
+          "n_events": 4
+        },
+        "drift": {
+          "hourly_recall": 0.0,
+          "events_detected": 0.0,
+          "n_events": 3
+        },
+        "replay": {
+          "hourly_recall": 0.648,
+          "events_detected": 0.857,
+          "n_events": 7
+        },
+        "spike": {
+          "hourly_recall": 0.68,
+          "events_detected": 1.0,
+          "n_events": 59
+        },
+        "stealth": {
+          "hourly_recall": 0.0,
+          "events_detected": 0.0,
+          "n_events": 2
+        }
+      }
+    },
+    "model": {
+      "decision_delay_h": 0,
+      "precision": 0.65,
+      "recall": 0.44,
+      "f1": 0.525,
+      "false_alarm_rate": 0.0029,
+      "pr_auc": 0.513,
+      "per_family": {
+        "bias": {
+          "hourly_recall": 0.168,
+          "events_detected": 0.25,
+          "n_events": 4
+        },
+        "drift": {
+          "hourly_recall": 0.109,
+          "events_detected": 0.333,
+          "n_events": 3
+        },
+        "replay": {
+          "hourly_recall": 0.639,
+          "events_detected": 0.714,
+          "n_events": 7
+        },
+        "spike": {
+          "hourly_recall": 0.99,
+          "events_detected": 1.0,
+          "n_events": 59
+        },
+        "stealth": {
+          "hourly_recall": 0.0,
+          "events_detected": 0.0,
+          "n_events": 2
+        }
+      }
+    },
+    "model_era5": {
+      "decision_delay_h": 120,
+      "precision": 0.697,
+      "recall": 0.598,
+      "f1": 0.644,
+      "false_alarm_rate": 0.0032,
+      "pr_auc": 0.713,
+      "per_family": {
+        "bias": {
+          "hourly_recall": 0.319,
+          "events_detected": 0.75,
+          "n_events": 4
+        },
+        "drift": {
+          "hourly_recall": 0.707,
+          "events_detected": 0.667,
+          "n_events": 3
+        },
+        "replay": {
+          "hourly_recall": 0.607,
+          "events_detected": 0.714,
+          "n_events": 7
+        },
+        "spike": {
+          "hourly_recall": 1.0,
+          "events_detected": 1.0,
+          "n_events": 59
+        },
+        "stealth": {
+          "hourly_recall": 0.0,
+          "events_detected": 0.0,
+          "n_events": 2
+        }
+      }
+    }
+  },
+  "demo": {
+    "decisions": 1009,
+    "decision_counts": {
+      "ACCEPT": 945,
+      "ALERT": 1,
+      "QUARANTINE": 1,
+      "REVIEW": 40,
+      "SUSPECT": 22
+    },
+    "confirmed_decision_counts": {
+      "ACCEPT": 945,
+      "ALERT": 21,
+      "CLEARED": 42,
+      "QUARANTINE": 1
+    },
+    "quarantined_codes": {
+      "E_BAD_SIG": 1
+    },
+    "attacked_hours_accepted_by_gate": 146,
+    "attacked_hours_flagged_suspect_or_alert": 19,
+    "attacked_hours_accepted_with_era5_alarm": 88
+  }
+}

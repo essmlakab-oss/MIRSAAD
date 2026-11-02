@@ -1,0 +1,114 @@
+{
+  "wall_seconds": 274.0,
+  "os": "Windows 11",
+  "python": "3.12.3",
+  "detector_input_sha256": "ff478b38f2f0996b5301a48f93f0a4b0a40b7bc321440c69f8e85ff31c6eb50a",
+  "warnings": [],
+  "steps": [
+    {
+      "project": "attack-engine",
+      "step": "uv sync --locked --all-groups",
+      "seconds": 3.2
+    },
+    {
+      "project": "cyber-pipeline",
+      "step": "uv sync --locked --all-groups",
+      "seconds": 3.5
+    },
+    {
+      "project": "signal-processing",
+      "step": "uv sync --locked --all-groups",
+      "seconds": 3.2
+    },
+    {
+      "project": "evaluation",
+      "step": "uv sync --locked --all-groups",
+      "seconds": 3.6
+    },
+    {
+      "project": "trust-decision",
+      "step": "uv sync --locked --all-groups",
+      "seconds": 3.0
+    },
+    {
+      "project": "attack-engine",
+      "step": "uv run attack-engine export --input",
+      "seconds": 22.4
+    },
+    {
+      "project": "5_Trust_Chain",
+      "step": "python scripts/anonymize_paths.py attack-engine/datasets/generated/run-20261101T003651Z-seed14-9cdd36",
+      "seconds": 0.1
+    },
+    {
+      "project": "signal-processing",
+      "step": "uv run signal-processing fit --input",
+      "seconds": 4.9
+    },
+    {
+      "project": "signal-processing",
+      "step": "uv run signal-processing fit --input",
+      "seconds": 2.2
+    },
+    {
+      "project": "signal-processing",
+      "step": "uv run signal-processing transform --input",
+      "seconds": 2.4
+    },
+    {
+      "project": "signal-processing",
+      "step": "uv run signal-processing transform --input",
+      "seconds": 2.7
+    },
+    {
+      "project": "signal-processing",
+      "step": "uv run python scripts/era5_leak_check.py --input",
+      "seconds": 1.3
+    },
+    {
+      "project": "signal-processing",
+      "step": "uv run signal-processing bench --input",
+      "seconds": 14.6
+    },
+    {
+      "project": "evaluation",
+      "step": "uv run python causal_detector_eval.py evaluate",
+      "seconds": 19.3
+    },
+    {
+      "project": "evaluation",
+      "step": "uv run python causal_detector_eval.py evaluate",
+      "seconds": 17.7
+    },
+    {
+      "project": "evaluation",
+      "step": "uv run python causal_detector_eval.py score",
+      "seconds": 2.9
+    },
+    {
+      "project": "evaluation",
+      "step": "uv run python causal_detector_eval.py score",
+      "seconds": 3.0
+    },
+    {
+      "project": "evaluation",
+      "step": "uv run python make_results_table.py",
+      "seconds": 0.1
+    },
+    {
+      "project": "5_Trust_Chain",
+      "step": "python scripts/run_demo.py --detector-dir attack-engine/datasets/generated/run-20261101T003651Z-seed14-9cdd36/detector --truth",
+      "seconds": 42.6
+    },
+    {
+      "project": "cyber-pipeline",
+      "step": "uv run python scripts/bench_gate.py --release",
+      "seconds": 120.9
+    },
+    {
+      "project": "5_Trust_Chain",
+      "step": "python scripts/collect_metrics.py",
+      "seconds": 0.1
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+# Environments
+**/.venv/
+**/venv/
+.env
+.env.*
+
+# Sensor identity material (never commit private keys)
+**/.sensorlab/
+**/*.private.pem
+
+# Python
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Tool caches
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/
+**/.coverage
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets and local runtime state
+**/*.pem
+**/*.key
+**/*.sqlite3
+**/*.sqlite3-*
+**/*.db
+!.env.example
+
+# Generated runs
+/results/demo/
+/era5/*.tmp
+**/outputs/gate-*/

@@ -1,0 +1,94 @@
+{
+  "data": "real detector-release observations from 2025-01-01T01:00:00Z",
+  "environment": {
+    "cpu": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+    "cpu_count": 12,
+    "os": "Windows 11",
+    "python": "3.12.3",
+    "packages": {
+      "cryptography": "50.0.2",
+      "fastapi": "0.162.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.1",
+      "uvicorn": "0.54.0"
+    },
+    "database": "SQLite WAL, synchronous=FULL"
+  },
+  "in_process": {
+    "accept": {
+      "n": 1000,
+      "mean_ms": 19.2352,
+      "p95_ms": 45.476
+    },
+    "accept_without_signature_verification": {
+      "n": 1000,
+      "mean_ms": 18.7868,
+      "p95_ms": 46.9113
+    },
+    "reject": {
+      "E_BAD_SIG": {
+        "n": 200,
+        "mean_ms": 15.3484,
+        "p95_ms": 25.0175
+      },
+      "E_REPLAY_SEQ": {
+        "n": 200,
+        "mean_ms": 18.1925,
+        "p95_ms": 46.1087
+      },
+      "E_REVOKED_KEY": {
+        "n": 200,
+        "mean_ms": 15.7077,
+        "p95_ms": 25.5824
+      },
+      "E_SCHEMA": {
+        "n": 200,
+        "mean_ms": 12.4728,
+        "p95_ms": 16.7469
+      },
+      "E_STALE": {
+        "n": 200,
+        "mean_ms": 13.1599,
+        "p95_ms": 15.9582
+      },
+      "E_UNAUTHORIZED_SESSION": {
+        "n": 200,
+        "mean_ms": 16.8938,
+        "p95_ms": 39.0616
+      },
+      "E_UNKNOWN_KEY": {
+        "n": 200,
+        "mean_ms": 12.2646,
+        "p95_ms": 15.4331
+      }
+    },
+    "ed25519_verify_envelope": {
+      "n": 1000,
+      "mean_ms": 0.1846,
+      "p95_ms": 0.2789
+    },
+    "security_overhead_ms_per_packet": 0.4484,
+    "peak_rss_mib": 289.8
+  },
+  "https": {
+    "packets": 3000,
+    "connection": "one keep-alive TLS connection, sequential",
+    "round_trip": {
+      "n": 3000,
+      "mean_ms": 16.751,
+      "p95_ms": 26.5771
+    },
+    "client_build_and_sign": {
+      "n": 3000,
+      "mean_ms": 0.6745,
+      "p95_ms": 0.9742
+    },
+    "throughput_packets_per_s": 59.7,
+    "server_peak_rss_mib": 121.2
+  },
+  "envelope": {
+    "unsigned_telemetry_mean_bytes": 610.0,
+    "signed_envelope_mean_bytes": 893.0,
+    "added_bytes_per_envelope": 283.0
+  }
+}

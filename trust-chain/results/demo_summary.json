@@ -1,0 +1,102 @@
+{
+  "window": {
+    "first": "2025-06-01 00:00:00",
+    "last": "2025-06-07 23:00:00"
+  },
+  "stations": 6,
+  "gate": {
+    "accepted": 1008,
+    "rejected": 1,
+    "codes": {
+      "E_BAD_SIG": 1,
+      "OK": 1008
+    },
+    "outbox_count": 1008,
+    "tampered_packet": {
+      "tampered_column": "SOIL_MOISTURE_5",
+      "sensor_id": "uscrn-ok-goodwell-2-se",
+      "sequence": 168,
+      "http_status": 403,
+      "gate_code": "E_BAD_SIG"
+    }
+  },
+  "decisions_total": 1009,
+  "decision_counts": {
+    "ACCEPT": 945,
+    "ALERT": 1,
+    "QUARANTINE": 1,
+    "REVIEW": 40,
+    "SUSPECT": 22
+  },
+  "confirmed_decision_counts": {
+    "ACCEPT": 945,
+    "ALERT": 21,
+    "CLEARED": 42,
+    "QUARANTINE": 1
+  },
+  "quarantined_codes": {
+    "E_BAD_SIG": 1
+  },
+  "attacked_hours_accepted_by_gate": 146,
+  "attacked_hours_flagged_suspect_or_alert": 19,
+  "attacked_hours_accepted_with_era5_alarm": 88,
+  "attacked_hours": {
+    "decision": {
+      "ACCEPT": 127,
+      "ALERT": 1,
+      "SUSPECT": 18
+    },
+    "confirmed_decision": {
+      "ACCEPT": 127,
+      "ALERT": 19
+    }
+  },
+  "clean_hours": {
+    "decision": {
+      "ACCEPT": 818,
+      "REVIEW": 40,
+      "SUSPECT": 4
+    },
+    "confirmed_decision": {
+      "ACCEPT": 818,
+      "ALERT": 2,
+      "CLEARED": 42
+    }
+  },
+  "attacked_by_family": {
+    "drift": {
+      "hours": 121,
+      "events": 2,
+      "decision": {
+        "ACCEPT": 105,
+        "SUSPECT": 16
+      },
+      "confirmed_decision": {
+        "ACCEPT": 105,
+        "ALERT": 16
+      }
+    },
+    "spike": {
+      "hours": 3,
+      "events": 1,
+      "decision": {
+        "ALERT": 1,
+        "SUSPECT": 2
+      },
+      "confirmed_decision": {
+        "ALERT": 3
+      }
+    },
+    "stealth": {
+      "hours": 22,
+      "events": 1,
+      "decision": {
+        "ACCEPT": 22
+      },
+      "confirmed_decision": {
+        "ACCEPT": 22
+      }
+    }
+  },
+  "confirmation_delay_h": 120
+}

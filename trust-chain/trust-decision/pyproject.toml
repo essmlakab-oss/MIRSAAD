@@ -1,0 +1,40 @@
+[project]
+name = "trust-decision"
+version = "0.1.0"
+description = "Stage 2 trust decisions over Crypto Gate decisions, signal features and hash-pinned detector scores."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.0",
+    "pandas>=2.2",
+    "pyarrow>=17",
+    "typer>=0.12",
+]
+
+[project.scripts]
+trust-decision = "trust_decision.cli:app"
+
+[build-system]
+requires = ["uv_build>=0.11.25,<0.14"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF", "N", "C4", "PTH", "BLE"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["trust_decision"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-ra", "--strict-markers", "--strict-config"]

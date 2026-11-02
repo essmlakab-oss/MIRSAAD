@@ -1,0 +1,3 @@
+era5/*.csv -text
+*.joblib binary
+models.sha256 text eol=lf
